@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>O-ZONE GLO ACADEMY</title>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container site-header__inner"> <!-- changed -->
+    <nav class="site-nav"> <!-- changed -->
+        <a class="logo" href="/">O-ZONE</a>
+        <div class="nav-quick">
+            <button class="nav-toggle__btn" type="button" aria-label="Меню" aria-controls="primary-nav"
+                    aria-expanded="false" data-nav-toggle>
+                <span></span>
+            </button>
+            <button class="account-link" id="account" aria-label="Личный кабинет">
+                <span class="account-link__icon"></span>
+                <span class="account-link__label">Личный кабинет</span>
+            </button>
+            <a href="#" id="cart" aria-label="Корзина">
+                <span class="counter">0</span>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path fill="currentColor" fill-rule="nonzero"
+                                      d="M6 6a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2h5.133L21.82 18.496A4 4 0 0 1 17.85 22H6.149a4 4 0 0 1-3.969-3.504L.867 8H6V6zm6 2a1 1 0 0 1 0 2H3.133l1.03 8.248A2 2 0 0 0 6.149 20h11.704a2 2 0 0 0 1.984-1.752L20.867 10H16V6a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2h4z">
+								</path>
+							</svg></span>
+                <span class="desc">Корзина</span>
+            </a>
+        </div>
+        <div class="nav-overlay" data-nav-overlay></div>
+        <div class="nav-drawer" id="primary-nav">
+            <ul class="nav-links">
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#partners">Партнёры</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="nav-controls">
+                <div class="nav-contact">
+                    <a class="nav-phone" href="tel:+375291112233">+375 (29) 111-22-33</a>
+                    <button class="btn btn-outline" type="button">Связаться</button>
+                </div>
+                <div class="catalog-button">
+                    <button type="button"><span class="catalog-button_burger"></span>Каталог</button>
+                    <div class="catalog">
+                        <ul class="catalog-list"></ul>
+                    </div>
+                </div>
+                <div class="search">
+                    <div class="search-wrapper">
+                        <input class="search-wrapper_input" type="text" placeholder="Поиск по каталогу">
+                    </div>
+                    <div class="search-btn">
+                        <button type="button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </div> <!-- changed -->
+</header>
+
+<section class="hero" id="hero">
+    <div class="container hero__content">
+        <div class="hero__text">
+            <p class="hero__eyebrow">Розничный и B2B-каталог техники</p>
+            <h1>Онлайн-магазин техники и ПО с гибкой логистикой</h1>
+            <p class="hero__subtitle">Собираем поставки под ваши проекты: от игровой периферии до корпоративного софта. Оперативно, прозрачно, с индивидуальной поддержкой.</p>
+            <div class="hero__actions">
+                <a class="btn" href="#catalog">Перейти в каталог</a>
+                <button class="btn btn-text">Получить консультацию</button>
+            </div>
+        </div>
+        <div class="hero__card">
+            <p>В наличии более</p>
+            <strong>120+</strong>
+            <span>наименований техники и софта</span>
+            <ul>
+                <li>Доставка по РБ за 1-3 дня</li>
+                <li>Персональный менеджер</li>
+                <li>Гарантия производителя</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section id="categories" class="section categories-section">
+        <div class="container">
+            <div class="section-head">
+                <p>Категории</p>
+                <h2>Работаем с проверенными направлениями</h2>
+            </div>
+            <div class="categories-grid" id="categories-grid"></div>
+        </div>
+    </section>
+
+    <section id="catalog" class="section catalog-section">
+        <div class="container">
+            <div class="catalog-layout">
+                <aside class="filter">
+                    <div class="filter-title">
+                        <h5>Фильтр</h5>
+                    </div>
+                    <div class="filter-price">
+                        <div class="filter-price_title">
+                            Цена
+                        </div>
+                        <form>
+                            <div class="filter-price_range">
+                                <div class="filter-price_input-wrapper">
+                                    <label for="min" class="filter-price_label">от</label>
+                                    <input id="min" class="filter-price_input">
+                                </div>
+                                <div class="filter-price_input-wrapper">
+                                    <label for="max" class="filter-price_label">до</label>
+                                    <input id="max" class="filter-price_input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="filter-sort">
+                        <label for="sort-control" class="filter-sort_label">Сортировка</label>
+                        <select id="sort-control" class="filter-sort_select">
+                            <option value="popular">Популярное</option>
+                            <option value="cheaper">Сначала дешевле</option>
+                            <option value="expensive">Сначала дороже</option>
+                            <option value="new">Сначала новинки</option>
+                            <option value="sale">Акции и скидки</option>
+                        </select>
+                    </div>
+                    <div class="filter-check">
+                        <label class="filter-check_label">
+                            <input type="checkbox" class="filter-check_checkbox" id="discount-checkbox">
+                            <span class="filter-check_checkmark"></span>
+                            <span class="filter-check_label-text">Акция</span>
+                        </label>
+                    </div>
+                </aside>
+                <div class="catalog-board">
+                    <div class="goods"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="section advantages-section">
+        <div class="container">
+            <div class="section-head">
+                <p>Почему выбирают нас</p>
+                <h2>Современный сервис для закупок техники</h2>
+            </div>
+            <div class="advantages-grid">
+                <article class="adv-card">
+                    <h3>Гибкие закупки</h3>
+                    <p>Поддерживаем разовые и регулярные поставки, быстро подстраиваемся под объёмы и графики.</p>
+                </article>
+                <article class="adv-card">
+                    <h3>Техническая экспертиза</h3>
+                    <p>Помогаем подобрать комплектацию, тестируем оборудование и подготавливаем отчёты.</p>
+                </article>
+                <article class="adv-card">
+                    <h3>Сервис и гарантия</h3>
+                    <p>Работаем только с сертифицированными поставщиками и сопровождаем технику весь срок службы.</p>
+                </article>
+                <article class="adv-card">
+                    <h3>Поддержка 24/7</h3>
+                    <p>Личный менеджер всегда на связи: чат, телефон или почта — как удобнее вашей команде.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about-section">
+        <div class="container about-layout">
+            <div>
+                <p>О компании</p>
+                <h2>Команда с опытом крупных поставок по всей Беларуси</h2>
+                <p>Мы работаем с ритейлом, интеграторами и корпоративными IT-отделами. Собираем точные конфигурации, следим за сроками и поддерживаем прозрачность на каждом этапе.</p>
+                <p>Благодаря собственному складу и партнерской логистике доставляем оборудование в течение 1-3 рабочих дней и сразу подключаем специалистов для настройки.</p>
+            </div>
+            <ul class="about-stats">
+                <li><strong>10+</strong><span>лет опыта команды</span></li>
+                <li><strong>500+</strong><span>выполненных заказов</span></li>
+                <li><strong>40+</strong><span>брендов в каталоге</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="partners" class="section partners-section">
+        <div class="container">
+            <div class="section-head">
+                <p>Партнёры</p>
+                <h2>Работаем с проверенными брендами</h2>
+            </div>
+            <div class="partners-logos">
+                <span>PlayStation</span>
+                <span>Microsoft</span>
+                <span>Logitech</span>
+                <span>Nintendo</span>
+                <span>ABBYY</span>
+                <span>SteelSeries</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section contacts-section">
+        <div class="container contacts-layout">
+            <div class="contacts-info">
+                <p>Контакты</p>
+                <h2>Поговорим о ваших задачах</h2>
+                <ul>
+                    <li><span>Телефон</span><a href="tel:+375291112233">+375 (29) 111-22-33</a></li>
+                    <li><span>Email</span><a href="mailto:info@ozone.by">info@ozone.by</a></li>
+                    <li><span>Адрес</span><p>Минск, ул. Кирова, 32</p></li>
+                </ul>
+            </div>
+            <form id="contact-form" class="contacts-form">
+                <label>
+                    <span>Имя</span>
+                    <input type="text" name="name" placeholder="Имя" required>
+                </label>
+                <label>
+                    <span>Компания</span>
+                    <input type="text" name="company" placeholder="Название компании">
+                </label>
+                <label>
+                    <span>Телефон или email</span>
+                    <input type="text" name="contact" placeholder="+375 (__) ___-__-__" required>
+                </label>
+                <label>
+                    <span>Сообщение</span>
+                    <textarea name="message" rows="3" placeholder="Расскажите о потребности"></textarea>
+                </label>
+                <button class="btn" type="submit">Отправить запрос</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <a class="logo" href="/">O-ZONE</a>
+            <p>Современный каталог электроники и ПО для бизнеса и частных закупок.</p>
+        </div>
+        <ul>
+            <li><strong>Меню</strong></li>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#about">О компании</a></li>
+        </ul>
+        <ul>
+            <li><strong>Связь</strong></li>
+            <li><a href="tel:+375291112233">+375 (29) 111-22-33</a></li>
+            <li><a href="mailto:info@ozone.by">info@ozone.by</a></li>
+        </ul>
+        <p class="footer-note">© 2024 O-ZONE. Все права защищены.</p>
+    </div>
+</footer>
+
+<div class="cart">
+    <div class="cart-body">
+        <div class="cart-title">Корзина</div>
+        <div class="cart-total">Общая сумма: <span class="cart-total-byn">0 BYN</span> · <span class="cart-total-rub">0 ₽</span></div>
+
+        <div class="cart-wrapper">
+            <div id="cart-empty">
+                Ваша корзина пока пуста
+            </div>
+        </div>
+        <button class="btn btn-primary cart-confirm">Оформить заказ</button>
+        <div class="cart-close">
+
+        </div>
+    </div>
+</div>
+
+<div class="product-modal" aria-hidden="true">
+    <div class="product-modal__overlay" data-close-modal></div>
+    <div class="product-modal__body">
+        <button class="product-modal__close" data-close-modal aria-label="Закрыть карточку"></button>
+        <div class="product-modal__content">
+            <div class="product-modal__gallery">
+                <div class="product-modal__image" role="img" aria-label=""></div>
+                <div class="product-modal__thumb is-hidden"></div>
+            </div>
+            <div class="product-modal__info">
+                <p class="product-modal__category"></p>
+                <h3 class="product-modal__title"></h3>
+                <div class="product-modal__prices">
+                    <span class="product-modal__price"></span>
+                    <span class="product-modal__price-rub"></span>
+                </div>
+                <div class="product-modal__description"></div>
+                <ul class="product-modal__props"></ul>
+                <div class="product-modal__actions">
+                    <button type="button" class="btn product-modal__add" data-modal-add>Добавить в корзину</button>
+                </div>
+                <p class="product-modal__hint">Используйте кнопку выше, чтобы отправить товар в корзину и продолжить выбор.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="account-modal" aria-hidden="true">
+    <div class="account-modal__overlay" data-close-account></div>
+    <div class="account-modal__body">
+        <button class="account-modal__close" data-close-account aria-label="Закрыть личный кабинет"></button>
+        <div class="account-modal__content">
+            <section class="account-modal__section">
+                <p class="account-modal__subtitle">Мгновенное оформление</p>
+                <h3>Создать заказ</h3>
+                <form id="order-form" class="account-modal__form">
+                    <label>
+                        <span>Имя</span>
+                        <input type="text" name="customer" placeholder="Александр" required>
+                    </label>
+                    <label>
+                        <span>Телефон</span>
+                        <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+                    </label>
+                    <label>
+                        <span>Комментарий к заказу</span>
+                        <textarea name="comment" rows="3" placeholder="Желаемое время доставки"></textarea>
+                    </label>
+                    <button type="submit" class="btn">Отправить заказ</button>
+                    <p class="account-modal__status" id="order-status">Добавьте товары в корзину и заполните форму.</p>
+                </form>
+            </section>
+            <section class="account-modal__section">
+                <p class="account-modal__subtitle">История</p>
+                <h3>Мои заказы</h3>
+                <div class="orders-empty">Заказы ещё не оформлены.</div>
+                <div class="orders-list"></div>
+            </section>
+        </div>
+    </div>
+</div>
+<div class="toast-container" aria-live="polite"></div>
+<script src="./dist/main.js"></script>
+</body>
+
+</html>
